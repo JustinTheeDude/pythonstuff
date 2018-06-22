@@ -8,7 +8,8 @@ def bunnies(plates):
     for i in combinations(plates, len(plates)):
        sortedPlates = sorted(plates, key=int, reverse=True)
        sumOfPlates = sum(plates)
-       print key 
+       print sortedPlates     
        if sumOfPlates % 3 == 0:
            print 'Ay ay captain'
+           
 bunnies(plates)

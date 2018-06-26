@@ -11,7 +11,8 @@ def bunnies(plates):
         for n in sortedPlates:
             if sumOfPlates % 3 == 0:
                 print 'cool'
-            if n % 3 == 1:
+                break
+            if n % 3 == 2:
                 sortedPlates.remove(n)
         print int(''.join(map(str, sortedPlates)))
 bunnies(plates)

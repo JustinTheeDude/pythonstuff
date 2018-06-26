@@ -1,6 +1,6 @@
 from itertools import combinations
 
-plates = [4, 4, 1, 8, 3, 6]
+plates = [8, 5, 1, 8, 3, 4]
 
 def bunnies(plates):
     if not len(plates) <= 9:
@@ -12,7 +12,7 @@ def bunnies(plates):
             if sumOfPlates % 3 == 0:
                 print 'cool'
                 break
-            if n % 3 == 2:
-                sortedPlates.remove(n)
+            if n % 3 == 1:
+                sortedPlates.pop(n)
         print int(''.join(map(str, sortedPlates)))
 bunnies(plates)

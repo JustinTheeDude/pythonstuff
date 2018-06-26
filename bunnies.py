@@ -1,14 +1,17 @@
 from itertools import combinations
 
-plates = [1, 8, 8, 2]
+plates = [4, 4, 1, 8, 3, 6]
 
 def bunnies(plates):
     if not len(plates) <= 9:
         print 'pls add plates'
     for i in combinations(plates, len(plates)):
-       sortedPlates = sorted(plates, key=int, reverse=True)
-       sumOfPlates = sum(plates)
-       if sumOfPlates % 3 == 0:
-           print 'cool'
-    print int(''.join(map(str, sortedPlates)))
+        sortedPlates = sorted(plates, key=int, reverse=True)
+        sumOfPlates = sum(plates)
+        for n in sortedPlates:
+            if sumOfPlates % 3 == 0:
+                print 'cool'
+            if n % 3 == 1:
+                sortedPlates.remove(n)
+        print int(''.join(map(str, sortedPlates)))
 bunnies(plates)

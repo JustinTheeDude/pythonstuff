@@ -10,7 +10,10 @@ def bunnies(plates):
         sortedPlates = sorted(plates, key=int, reverse=True)
         sumOfPlates = sum(plates)
         newPlates = list(permutations(sortedPlates, 2))
-        for n in newPlates:
-            print n
+        sumplate = map(sum, newPlates)
+        pprint.pprint(sumplate)
+        pprint.pprint(newPlates)
+        if sumplate % 3 == 1:
+            check(sumplate)
         print int(''.join(map(str, sortedPlates)))
 bunnies(plates)

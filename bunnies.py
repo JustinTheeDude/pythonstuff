@@ -1,4 +1,5 @@
-from itertools import combinations
+from itertools import combinations, permutations
+import pprint
 
 plates = [8, 5, 1, 8, 3, 4]
 
@@ -8,11 +9,8 @@ def bunnies(plates):
     for i in combinations(plates, len(plates)):
         sortedPlates = sorted(plates, key=int, reverse=True)
         sumOfPlates = sum(plates)
-        for n in sortedPlates:
-            if sumOfPlates % 3 == 0:
-                print 'cool'
-                break
-            if n % 3 == 1:
-                sortedPlates.pop(n)
+        newPlates = list(permutations(sortedPlates, 2))
+        for n in newPlates:
+            print n
         print int(''.join(map(str, sortedPlates)))
 bunnies(plates)

@@ -12,10 +12,12 @@ def bunnies(plates):
         if sumOfPlates % 3 == 0:
             print 'good'
         if sumOfPlates % 3 == 2:
-            newList = []
-            platelist = [n for n in i if n % 3 == 2]
-            print platelist
-            print i
+            for n in i:
+                print n
+                newList = []
+                platelist = [i for i in n if n % 3 == 2]
+                platelist.remove(min(platelist))
+                print platelist
         #print int(''.join(map(str, sortedPlates)))
 
 bunnies(plates)

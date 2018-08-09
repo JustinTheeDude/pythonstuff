@@ -1,36 +1,33 @@
-plates = [1, 4, 1, 2, 5]
+plates = [8, 5, 1, 8, 3, 4]
 
 
 def bunnies(plates):
+    sortedp = sorted(plates, key=int, reverse=True)
     sumOfPlates = sum(plates)
     if sumOfPlates % 3 == 1:
-        platelist = [n for n in plates]
         try:
-            platelist.pop(platelist.index(min(
-                [u for u in platelist if u % 3 == 1])))
+            sortedp.pop(sortedp.index(min(
+                [u for u in sortedp if u % 3 == 1])))
         except ValueError:
-            platelist.pop(platelist.index(min(
-                [u for u in platelist if u % 3 == 2])))
-            platelist.pop(platelist.index(min(
-                [u for u in platelist if u % 3 == 2])))
-        sortedp = sorted(platelist, key=int, reverse=True)
+            sortedp.pop(sortedp.index(min(
+                [u for u in sortedp if u % 3 == 2])))
+            sortedp.pop(sortedp.index(min(
+                [u for u in sortedp if u % 3 == 2])))
 
     if sumOfPlates % 3 == 2:
-        platelist = [n for n in plates]
         try:
-            platelist.pop(platelist.index(min(
-                [u for u in platelist if u % 3 == 2])))
+            sortedp.pop(sortedp.index(min(
+                [u for u in sortedp if u % 3 == 2])))
         except ValueError:
-            platelist.pop(platelist.index(min(
-                [u for u in platelist if u % 3 == 1])))
-            platelist.pop(platelist.index(min(
-                [u for u in platelist if u % 3 == 1])))
-        sortedp = sorted(platelist, key=int, reverse=True)
+            sortedp.pop(sortedp.index(min(
+                [u for u in sortedp if u % 3 == 1])))
+            sortedp.pop(sortedp.index(min(
+                [u for u in sortedp if u % 3 == 1])))
 
     return ''.join(map(str, sortedp))
 
 
-for count in xrange(10):
-    something = [int(x) for x in list("{}".format(count))]
+for count in xrange(100000):
+    plates = [int(x) for x in list("{}".format(count))]
     ans = bunnies(plates)
     print("{} : {}".format(count, ans))
